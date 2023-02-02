@@ -20,23 +20,13 @@ const DeleteUser = async(req,res) =>{
 const postUser = async(req,res) =>{
     try{
         const {name,phone} =req.body
-        const check = await User.findOne({"phone": phone})
-        
-        console.log(phone.length)
+        console.log(req.body)
+        const obj = new User(req.body)
 
-        if(phone.length != 10){
-            return res.send("Please Provide a valid no.")
-        }
-        if(!check){
-            const obj = new User({
-                name:name,
-                phone:phone
-            })
-        //    await obj.save()
-        }else{
-            return res.send("User Exist")
-        }
-        return res.send("post")
+        console.log(obj)
+      await obj.save()
+      console.log(req.body, "************************************")
+        return res.send(req.body)
     }catch(err){
         console.log(err)
     }

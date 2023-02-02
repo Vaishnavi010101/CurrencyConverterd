@@ -34,6 +34,7 @@ const postUser=async(req,reply)=>{
     }catch(error){
         console.log("outer catch")
         reply.send(error)
+        
     }
   
 }
@@ -59,7 +60,7 @@ const deleteUser= async (req,reply)=>{
 }
 
 ///////////////////////////////////////////////////
-
+  
 
 
 

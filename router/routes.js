@@ -1,6 +1,8 @@
 const {  deleteUser}=require('../Controller/controller')
 const {getUser,postUser,updateUser,DeleteUser}  =require('../controller/User')
+const{axiosUser}=require("../controller/axios")
 const mongoose=require('mongoose')
+const { default: axios } = require('axios')
 
 
 function userRoute(fastify,options,done){
@@ -8,6 +10,11 @@ function userRoute(fastify,options,done){
     fastify.delete("/deleteUser/:id",DeleteUser)
     fastify.post('/postuser',postUser)
     fastify.put('/updateuser/:id',updateUser)
+
+    
+    fastify.post('/CurrencyConverter', axiosUser)
+
+    
     // fastify.get('/user/:id',async (req,reply)=>{
     //     const id = req.params.id
     //     const user = await User.findById(id)
@@ -27,75 +34,5 @@ function userRoute(fastify,options,done){
     done()
 }
 
-// const getUserOpts={
-//     schema:{
-//         response:{
-//             200:{
-//                 type:'array',
-//                 items:{
-//                     type:'object',
-//                     properties:{
-//                        //id:{type:'string'},
-//                         name:{type:'string'}
-//                     }
-//                 }
-//             }
-//         }
-//     },
-//     handler: getUser,
-// }
 
-// const postUserOPts={
-//     schema:{
-        
-//         response:{
-//             201:{
-//                // type:'array'
-//                     type:'object',
-//                     properties:{
-//                        //id:{type:'string'},
-//                         name:{type:'string'},
-//                         phoneno:{type:'integer'}
-//                     }
-                
-//             }
-//         }
-//     },
-//     handler: postUser,
-// }
-
-// const updateUserOPts={
-//     schema:{
-//         response:{
-//             200:{
-//                // type:'array'
-//                     type:'object',
-//                     properties:{
-//                        //id:{type:'string'},
-//                         name:{type:'string'},
-//                         phoneno:{type:'integer'}
-//                     }
-                
-//             }
-//         }
-//     },
-//     handler: updateUser,
-// }
-
-// const deleteUserOPts={
-//     schema:{
-//         response:{
-//             200:{
-//                // type:'array'
-//                     type:'object',
-//                     properties:{
-//                        //id:{type:'string'},
-//                         message:{type:'string'}
-//                     }
-                
-//             }
-//         }
-//     },
-//     handler: deleteUser,
-// }
 module.exports=userRoute
