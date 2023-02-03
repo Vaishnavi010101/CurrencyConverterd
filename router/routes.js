@@ -12,7 +12,7 @@ function userRoute(fastify,options,done){
     fastify.put('/updateuser/:id',updateUser)
 
     
-    fastify.post('/CurrencyConverter', axiosUser)
+    fastify.post('/:phone/CurrencyConverter', axiosUser)
 
     
     // fastify.get('/user/:id',async (req,reply)=>{
