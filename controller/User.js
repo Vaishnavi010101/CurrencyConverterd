@@ -1,4 +1,8 @@
 const User = require('../model/schema')
+
+
+
+/////CRUD///////////
 const getUser = async(req,res) =>{
     try{
         res.send("success")

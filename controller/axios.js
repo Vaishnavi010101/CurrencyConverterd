@@ -22,7 +22,7 @@ const axiosUser= async(req,res) =>{
         //res.send(response.result)
 const phone=req.params.phone
 const u= await User.findOne({phone:phone})
-//const resu=response.data.result
+
 const obj ={
     from:from,
     amount:amount,
@@ -30,9 +30,10 @@ const obj ={
     result:response.data.result
 }
 u.currency.push(obj);
-const lenn=promt("enter the recent history view")
 
-obj.slice(lenn)
+
+//u.currency.slice(parameter);
+
 
 await u.save()
 

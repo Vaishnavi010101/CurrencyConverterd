@@ -3,6 +3,7 @@ const {getUser,postUser,updateUser,DeleteUser}  =require('../controller/User')
 const{axiosUser}=require("../controller/axios")
 const mongoose=require('mongoose')
 const { default: axios } = require('axios')
+const{historyUser}=require("../controller/history")
 
 
 function userRoute(fastify,options,done){
@@ -13,6 +14,7 @@ function userRoute(fastify,options,done){
 
     
     fastify.post('/:phone/CurrencyConverter', axiosUser)
+    fastify.post('/:phone/ViewHistory',historyUser)
 
     
     // fastify.get('/user/:id',async (req,reply)=>{
