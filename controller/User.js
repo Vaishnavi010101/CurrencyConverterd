@@ -6,8 +6,10 @@ const User = require('../model/schema')
 const getUser = async(req,res) =>{
     try{
         res.send("success")
+        const res=await User.find()
+      reply.send(res)
     }catch(err){
-
+        console.error(err)
     }
 }
 const DeleteUser = async(req,res) =>{

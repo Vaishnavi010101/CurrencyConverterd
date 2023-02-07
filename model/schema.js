@@ -8,10 +8,11 @@ const UserSchema=new mongoose.Schema({
          to:String,
          amount:Number,
          result:Number,
-        
+         CreatedAt:String
         }
     ],
     parameter:Number 
+   // CreatedAt:String
 })
 
 const User=mongoose.model("User",UserSchema)

@@ -3,6 +3,7 @@ const User = require('../model/schema')
 const { default: axios } = require('axios')
 const userRoute = require('../router/routes')
 //const User = require('../model/schema')
+const moment =require('moment')
 
 
 
@@ -22,12 +23,16 @@ const axiosUser= async(req,res) =>{
         //res.send(response.result)
 const phone=req.params.phone
 const u= await User.findOne({phone:phone})
+//const date=new Date().toString()
+let m = moment()
+const var1=m.format("DD//MM/YYYY")
 
 const obj ={
     from:from,
     amount:amount,
     to:to,
-    result:response.data.result
+    result:response.data.result,
+    CreatedAt:var1
 }
 u.currency.push(obj);
 
@@ -36,7 +41,7 @@ u.currency.push(obj);
 
 
 await u.save()
-
+ 
 
 
 // const u = response.data 
