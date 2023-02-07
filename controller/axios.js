@@ -10,7 +10,7 @@ const moment =require('moment')
 
 const axiosUser= async(req,res) =>{
     try{
-        console.log("ifuhg")
+       // console.log("ifuhg")
 
     
         const {amount ,from, to} =req.body
@@ -20,7 +20,7 @@ const axiosUser= async(req,res) =>{
                 "apiKey":"3Cy3R865uTduIL0plTf3ovJTPjZTKhJb"
             }
         })
-        //res.send(response.result)
+        //res.send(response.result) 
 const phone=req.params.phone
 const u= await User.findOne({phone:phone})
 //const date=new Date().toString()
@@ -32,7 +32,8 @@ const obj ={
     amount:amount,
     to:to,
     result:response.data.result,
-    CreatedAt:var1
+    CreatedAt:var1,
+    favourite:req.body.favourite
 }
 u.currency.push(obj);
 

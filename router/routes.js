@@ -3,7 +3,7 @@ const {getUser,postUser,updateUser,DeleteUser}  =require('../controller/User')
 const{axiosUser}=require("../controller/axios")
 const mongoose=require('mongoose')
 const { default: axios } = require('axios')
-const{historyUser,dateBefore,dateAfter,dateSame}=require("../controller/history")
+const{historyUser,dateBefore,dateAfter,dateSame,favouriteUser}=require("../controller/history")
 
 
 
@@ -20,7 +20,7 @@ function userRoute(fastify,options,done){
     fastify.post('/:phone/dataAndTimebefore',dateBefore)
     fastify.post('/:phone/dataAndTimeafter',dateAfter)
     fastify.post('/:phone/dataAndTimeSame',dateSame)
-    
+    fastify.get('/:phone/favouriteUser',favouriteUser)
 
     
     // fastify.get('/user/:id',async (req,reply)=>{

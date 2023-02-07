@@ -9,7 +9,7 @@ const getUser = async(req,res) =>{
         const res=await User.find()
       reply.send(res)
     }catch(err){
-        console.error(err)
+        console.log(err)
     }
 }
 const DeleteUser = async(req,res) =>{
@@ -26,7 +26,7 @@ const DeleteUser = async(req,res) =>{
 const postUser = async(req,res) =>{
     try{
         const {name,phone} =req.body
-        console.log(req.body)
+        console.log(req.body) 
         const obj = new User(req.body)
 
         console.log(obj)

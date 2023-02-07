@@ -8,10 +8,12 @@ const UserSchema=new mongoose.Schema({
          to:String,
          amount:Number,
          result:Number,
-         CreatedAt:String
+         CreatedAt:String,
+         favourite:Boolean
         }
     ],
     parameter:Number 
+    
    // CreatedAt:String
 })
 

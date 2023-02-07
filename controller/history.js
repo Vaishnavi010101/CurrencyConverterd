@@ -74,10 +74,28 @@ try{
                 }}
                           
                                
+ const  favouriteUser= async(req,res) =>{
+   
+        try{
+            
+                    //const {date}=req.body
+                    const phone=req.params.phone
+                    const y= await User.findOne({phone:phone})
             
 
+            const var2= y.currency.filter((item)=>{
+                return item.favourite
+            })
+            res.send(var2)
+            }
+            //res.send(var2)
+            
+              //  }
+                catch(err){
+                    console.log(err)
+                        }  }                   
 
 
 
 
- module.exports={historyUser,dateBefore,dateAfter,dateSame}
+ module.exports={historyUser,dateBefore,dateAfter,dateSame,favouriteUser}
